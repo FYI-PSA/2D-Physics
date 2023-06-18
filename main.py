@@ -136,14 +136,9 @@ def checkCollission():
 B = ball(mass = 0.5, radius = 1, position = [0 , 200], coefficient_of_restitution = 0.88)
 Ground = platform(position = [0, -200], length = 1, width = 5)
 
-old_t = time.time()
 while 1:
-    new_t = time.time()
-    delta_t = new_t - old_t
-    if (delta_t < 0.00000001):
-        delta_t = 0.00000001
+    delta_t = 0.01
     B.setDt(delta_t)
-    old_t = new_t 
 
     current_force = [gravity_force[0] * delta_t, gravity_force[1] * delta_t]
     B.applyForce(current_force)
